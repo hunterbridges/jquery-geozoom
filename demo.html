@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+  <title>Geozoom by Hunter Bridges</title>
+
+  <script src="javascripts/jquery-1.5.1.min.js"></script>
+  <script src="javascripts/jquery-geozoom.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="stylesheets/jquery-geozoom.css" />
+
+  <style type="text/css">
+    body {
+      background-color: #e6e6e6;
+      color: #666666;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size:12px;
+      line-height:18px;
+      margin:20px;
+    }
+
+    .width {
+      width:960px;
+      margin:auto;
+    }
+
+    p {
+      width:400px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function () {
+      $(".geozoom").geozoom();
+    });
+  </script>
+</head>
+<body>
+  <div class="width">
+  <div class="geozoom" style="float:right"></div>
+  <h1>Geozoom</h1>
+  <h2>By Hunter Bridges</h2>
+  <a href='https://github.com/hunterbridges/jquery-geozoom'>Download/Check out on Github!</a>
+  <p>
+    <em>Geozoom</em> is a jQuery plugin. It is basically an adaptation of
+    <a href="http://www.flickr.com/photos/53262871@N00/42572743">a clever UI element on Flickr</a>; it just uses <a href="http://code.google.com/apis/maps/documentation/staticmaps">Google Static Maps</a> instead of Yahoo. When you hover over a Geozoom map, it zooms in depending on how close your pointer is to the center. It also works pretty well on touch devices.
+  </p>
+  <h3>Usage</h3>
+  <p>First, <a href='https://github.com/hunterbridges/jquery-geozoom'>grab it from Github</a>. Then, include jQuery, <code>jquery-geozoom.js</code>, and <code>jquery-geozoom.css</code>. Make sure <code>jquery-geozoom-pin.png</code> is in <code>images/</code> (More specifically, <code>../images/</code> relative to wherever you put the CSS file).</p>
+  <p>All you <em>have</em> to do is call the .geozoom() constructor.
+  You will get a 512x512 Geozoom map of New York, NY! I figured it was a
+  sensible default.</p>
+  <p>Supported parameters are
+  <ul>
+    <li><b><code>width</code></b> - Width of your Geozoom map element (Default: 512)</li>
+    <li><b><code>height</code></b> - Height of your Geozoom map element (Default: 512)</li>
+    <li><b><code>address</code></b> - Address for your Geozoom map (Default: "New York, NY")</li>
+    <li><b><code>maptype</code></b> - The type of map you wish to render. Options are <code>roadmap</code>, <code>satellite</code>, <code>terrain</code>, and <code>hybrid</code>. (Default: "hybrid")</li></ul>
+    They can be passed into the constructor or included in the HTML element's data attributes. For example, these will produce the same results:
+  <div class="geozoom" style="margin-top:20px; clear:right; float:right" data-width"400" data-height="200" data-address="San Francisco, CA"></div>
+  <h4>Ex. 1</h4>
+  <pre>
+&lt;script&gt;
+  $(document).ready(function () {
+    $(".geozoom").geozoom();
+  });
+&lt;/script&gt;
+&lt;div class="geozoom"
+     data-width="400"
+     data-height="200"
+     data-address="San Francisco, CA"&gt;&lt;/div&gt;</pre>
+  <h4>Ex. 2</h4>
+    <pre>
+&lt;script&gt;
+  $(document).ready(function () {
+    $(".geozoom").geozoom({width:400, height:200});
+  });
+&lt;/script&gt;
+&lt;div class="geozoom"
+     data-address="San Francisco, CA"&gt;&lt;/div&gt;</pre>
+  </p>
+  <h3>Limitations</h3>
+  <p>
+    Since Geozoom uses Google Static Maps, we get all the images for free.
+    However, there are <a href="http://code.google.com/apis/maps/documentation/staticmaps/#scale_values">limitations</a> for the Google Static Maps free tier.
+    The most notable of these is that the maximum image size is 640x640. To get
+    around this, Geozoom handles resizing for you. You can make a Geozoom map
+    of any size, but ones larger than 640x640 will have stretched images.
+    I don't think it looks <em>too</em> bad, but you can be the judge! :)
+  </p>
+  <div class="geozoom" data-height="960" data-width="960" data-address="London, England"></div>
+</div>
+</body>
+</html>

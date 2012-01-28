@@ -1,0 +1,78 @@
+.geozoom {
+    cursor:pointer;
+    position:relative;
+    display:block;
+}
+
+.geozoom ul.images,
+.geozoom ul.images li {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    list-style-type: none;
+    padding:0px;
+    margin:0px;
+    z-index:1;
+    text-align:center;
+}
+
+.geozoom ul.images li img {
+  height:100%;
+  width:100%;
+}
+
+.geozoom div.zone.catcher {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    z-index:2;
+}
+
+.geozoom div.zone.inner {
+    position:absolute;
+    top:25%;
+    left:25%;
+    width:50%;
+    height:50%;
+    overflow:visible;
+    z-index:3;
+}
+
+.geozoom div.point {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-24px;
+    margin-left:-9px;
+    height:24px;
+    width:19px;
+    background-image:url('../images/jquery-geozoom-pin.png');
+    background-repeat: no-repeat;
+    z-index:4;
+}
+
+.geozoom div.catcher div.inner .point:hover {
+    opacity:0.5;
+
+}
+
+.geozoom .label {
+    position:absolute;
+    top:50%;
+    margin-top: 12px;
+    left:0;
+    width:100%;
+    line-height:14px;
+    font-size:12px;
+    z-index:3;
+    text-align: center;
+}
+.geozoom .label span {
+    background-color:#e6e6e6;
+    padding: 2px;
+    font-weight:bold;
+}
