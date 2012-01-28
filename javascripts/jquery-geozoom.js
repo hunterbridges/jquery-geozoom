@@ -5,7 +5,6 @@
     return this.each(function() {
       var $this = $(this);
 
-      console.log($.meta);
       var o = $.extend({}, opts, $this.data());
 
       $this.height(o.height);
@@ -33,11 +32,11 @@
       });
 
       $this.find('.point').mouseenter(function (e) {
-          $(this).closest(".geozoom").find(".label").show();
+        $(this).closest(".geozoom").find(".label").show();
       });
 
       $this.find('.point').mouseleave(function (e) {
-          $(this).closest(".geozoom").find(".label").hide();
+        $(this).closest(".geozoom").find(".label").hide();
       });
     });
   };
