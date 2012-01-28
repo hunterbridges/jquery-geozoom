@@ -10,8 +10,8 @@
       $this.height(o.height);
       $this.width(o.width);
       $this.addClass("geozoom");
-
-      var markup = $.fn.geozoom.formatHtml(o.width,o.height,o.address,o.maptype);
+      
+      var markup = $.fn.geozoom.formatHtml(o);
       $this.html(markup);
 
       $this.find('ul.images li:gt(0)').css('opacity','0');
@@ -41,18 +41,18 @@
     });
   };
 
-  $.fn.geozoom.formatHtml = function(width,height,address,maptype) {
+  $.fn.geozoom.formatHtml = function(o) {
     return "<ul class='images'>\n\
-      <li><img src='"+$.fn.geozoom.gImgUrl(width,height,address,2,maptype)+"' /></li>\
-      <li><img src='"+$.fn.geozoom.gImgUrl(width,height,address,5,maptype)+"' /></li>\
-      <li><img src='"+$.fn.geozoom.gImgUrl(width,height,address,10,maptype)+"' /></li>\
+      <li><img src='"+$.fn.geozoom.gImgUrl(o.width,o.height,o.address,o.zstart,o.maptype)+"' /></li>\
+      <li><img src='"+$.fn.geozoom.gImgUrl(o.width,o.height,o.address,o.zmiddle,o.maptype)+"' /></li>\
+      <li><img src='"+$.fn.geozoom.gImgUrl(o.width,o.height,o.address,o.zend,o.maptype)+"' /></li>\
       </ul>\
       <div class='zones'>\
         <div class='zone level catcher'>\
           <div class='zone level inner'>\
             <div class='point'>\
       </div></div></div></div>\
-      <div class='label'><span>"+address+"</span></div>";
+      <div class='label'><span>"+o.address+"</span></div>";
   };
 
   $.fn.geozoom.gImgUrl = function (width, height, address, zoom, maptype) {
@@ -88,7 +88,10 @@
     height: 512,
     width: 512,
     address: 'New York, NY',
-    maptype: 'hybrid'
+    maptype: 'hybrid',
+    zstart: 2,
+    zmiddle: 5,
+    zend: 10
   };
 })(jQuery);
 
