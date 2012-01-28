@@ -55,7 +55,7 @@
     <li><b><code>address</code></b> - Address for your Geozoom map (Default: "New York, NY")</li>
     <li><b><code>maptype</code></b> - The type of map you wish to render. Options are <code>roadmap</code>, <code>satellite</code>, <code>terrain</code>, and <code>hybrid</code>. (Default: "hybrid")</li></ul>
     They can be passed into the constructor or included in the HTML element's data attributes. For example, these will produce the same results:
-  <div class="geozoom" style="margin-top:20px; clear:right; float:right" data-width"400" data-height="200" data-address="San Francisco, CA"></div>
+  <div class="geozoom" style="margin-top:20px; clear:right; float:right" data-width="400" data-height="200" data-address="San Francisco, CA" ></div>
   <h4>Ex. 1</h4>
   <pre>
 &lt;script&gt;
@@ -77,6 +77,25 @@
 &lt;div class="geozoom"
      data-address="San Francisco, CA"&gt;&lt;/div&gt;</pre>
   </p>
+    <hr />
+    <div class="geozoom" style="margin-top:20px; clear:right; float:right" data-width="400" data-height="200" data-address="San Francisco, CA" data-zstart="11" data-zmiddle="14" data-zend="17"></div>
+  <h3>Customizable Zoom Levels</h3>
+  <p>You may also provide specific zoom levels (1-20), for example if you audience needs to start on the city-wide zoom level and get to the street from there.
+    <pre>
+    &lt;script&gt;
+      $(document).ready(function () {
+        $(".geozoom").geozoom();
+      });
+    &lt;/script&gt;
+    &lt;div class="geozoom"
+         data-width="400"
+         data-height="200"
+         data-zstart="12"
+         data-zmiddle="15"
+         data-zend="17" &gt;&lt;/div&gt;</pre>  
+    
+  </p>
+  <hr />
   <h3>Limitations</h3>
   <p>
     Since Geozoom uses Google Static Maps, we get all the images for free.
