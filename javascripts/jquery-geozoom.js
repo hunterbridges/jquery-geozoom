@@ -42,7 +42,9 @@
       $('.geozoom .point').css({
         'background-image' : 'url('+o.pin+')',
         'height' : o.pinHeight,
-        'width' : o.pinWidth
+        'width' : o.pinWidth,
+        'margin-top' : -o.pinHeight,
+        'margin-left' : -(o.pinWidth / 2)
       });
     });
   };
