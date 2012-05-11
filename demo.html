@@ -29,7 +29,11 @@
 
   <script>
     $(document).ready(function () {
-      $(".geozoom").geozoom();
+      $(".geozoom").geozoom({
+        'pin' : 'https://si0.twimg.com/profile_images/1464373241/wantful_logoMark_mini.jpg',
+        'pinHeight' : 24,
+        'pinWidth' : 24
+      });
     });
   </script>
 </head>
@@ -118,7 +122,6 @@
          data-width="400"
          data-height="200"
          data-label="false" &gt;&lt;/div&gt;</pre>
-
   </p>
   <hr />
   <h3>Limitations</h3>
