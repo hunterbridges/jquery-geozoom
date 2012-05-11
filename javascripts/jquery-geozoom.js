@@ -10,7 +10,7 @@
       $this.height(o.height);
       $this.width(o.width);
       $this.addClass("geozoom");
-      
+
       var markup = $.fn.geozoom.formatHtml(o);
       $this.html(markup);
 
@@ -42,7 +42,7 @@
   };
 
   $.fn.geozoom.formatHtml = function(o) {
-    return "<ul class='images'>\n\
+    var html = "<ul class='images'>\n\
       <li><img src='"+$.fn.geozoom.gImgUrl(o.width,o.height,o.address,o.zstart,o.maptype)+"' /></li>\
       <li><img src='"+$.fn.geozoom.gImgUrl(o.width,o.height,o.address,o.zmiddle,o.maptype)+"' /></li>\
       <li><img src='"+$.fn.geozoom.gImgUrl(o.width,o.height,o.address,o.zend,o.maptype)+"' /></li>\
@@ -51,8 +51,9 @@
         <div class='zone level catcher'>\
           <div class='zone level inner'>\
             <div class='point'>\
-      </div></div></div></div>\
-      <div class='label'><span>"+o.address+"</span></div>";
+      </div></div></div></div>";
+    if (o.label) html += "<div class='label'><span>"+o.address+"</span></div>";
+    return html;
   };
 
   $.fn.geozoom.gImgUrl = function (width, height, address, zoom, maptype) {
@@ -91,7 +92,8 @@
     maptype: 'hybrid',
     zstart: 2,
     zmiddle: 5,
-    zend: 10
+    zend: 10,
+    label: true
   };
 })(jQuery);
 
