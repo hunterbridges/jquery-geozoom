@@ -1,13 +1,13 @@
 (function($) {
   $.fn.geozoom = function(options) {
     var opts = $.extend({}, $.fn.geozoom.defaults, options);
+    var newKeys = $.fn.geozoom.camelCase(opts);
+    var newOpts = $.fn.geozoom.newOpts(opts, newKeys);
 
     return this.each(function() {
       var $this = $(this);
 
       var o = $.extend({}, opts, $this.data());
-
-      console.log(o);
 
       $this.height(o.height);
       $this.width(o.width);
@@ -93,6 +93,33 @@
     var coef = canvas[majorAxis] / size[majorAxis];
     return { height: Math.round(size.height * coef),
              width: Math.round(size.width * coef) };
+  };
+
+  $.fn.geozoom.camelCase = function(opts) {
+    var keys = [];
+    $.each(opts, function(key){
+      var keyPieces = key.split('-');
+      if (keyPieces.length === 2) {
+        var firstLetter = keyPieces[1].charAt(0).toUpperCase();
+        var restOfWord = keyPieces[1].substring(1);
+        var newWord = firstLetter + restOfWord;
+        keyPieces = keyPieces[0] + newWord;
+      } else {
+        keyPieces = keyPieces[0];
+      }
+      keys.push(keyPieces);
+    });
+    return keys;
+  };
+
+  $.fn.geozoom.newOpts = function(opts, newKeys) {
+    var options = {};
+    var i = 0;
+    $.each(opts, function(key, value){
+      options[newKeys[i]] = value;
+      i++;
+    });
+    return options;
   };
 
   $.fn.geozoom.defaults = {
