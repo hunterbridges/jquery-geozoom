@@ -53,7 +53,16 @@
     <li><b><code>width</code></b> - Width of your Geozoom map element (Default: 512)</li>
     <li><b><code>height</code></b> - Height of your Geozoom map element (Default: 512)</li>
     <li><b><code>address</code></b> - Address for your Geozoom map (Default: "New York, NY")</li>
-    <li><b><code>maptype</code></b> - The type of map you wish to render. Options are <code>roadmap</code>, <code>satellite</code>, <code>terrain</code>, and <code>hybrid</code>. (Default: "hybrid")</li></ul>
+    <li><b><code>maptype</code></b> - The type of map you wish to render. Options are <code>roadmap</code>, <code>satellite</code>, <code>terrain</code>, and <code>hybrid</code>. (Default: "hybrid")</li>
+    <li><b><code>zstart</code></b> - Initial zoom level (Default: 2; Values between 1 - 14)</li>
+    <li><b><code>zmiddle</code></b> - Middle zoom level (Default: 5)</li>
+    <li><b><code>zend</code></b> - End zoom level (Default: 10)</li>
+    <li><b><code>label</code></b> - Show or hide the label (Default: true)</li>
+    <li><b><code>pin</code></b> - Custom pin image (optional)</li>
+    <li><b><code>pin-width</code></b> - Width of custom pin </li>
+    <li><b><code>pin-height</code></b> - Height of custom pin </li>
+  </ul>
+
     They can be passed into the constructor or included in the HTML element's data attributes. For example, these will produce the same results:
   <div class="geozoom" style="margin-top:20px; clear:right; float:right" data-width="400" data-height="200" data-address="San Francisco, CA" ></div>
   <h4>Ex. 1</h4>
@@ -92,8 +101,40 @@
          data-height="200"
          data-zstart="11"
          data-zmiddle="14"
-         data-zend="17" &gt;&lt;/div&gt;</pre>  
-    
+         data-zend="17" &gt;&lt;/div&gt;</pre>
+
+  </p>
+  <hr />
+  <div class="geozoom" style="margin-top:20px; clear:right; float:right" data-width="400" data-height="200" data-address="San Francisco, CA" data-label="false" ></div>
+  <h3>Optional Label</h3>
+  <p>Turn the label on/off</p>
+    <pre>
+    &lt;script&gt;
+      $(document).ready(function () {
+        $(".geozoom").geozoom();
+      });
+    &lt;/script&gt;
+    &lt;div class="geozoom"
+         data-width="400"
+         data-height="200"
+         data-label="false" &gt;&lt;/div&gt;</pre>
+  </p>
+  <hr />
+    <div class="geozoom" style="margin-top:20px; clear:right; float:right" data-width="400" data-height="200" data-pin="http://www.timeanddate.com/gfx/n/icon/icon-map-pin.png" data-pin-width="18" data-pin-height="34"></div>
+  <h3>Customize Pin</h3>
+  <p>Customize the pin image by supplying image path</p>
+    <pre>
+    &lt;script&gt;
+      $(document).ready(function () {
+        $(".geozoom").geozoom();
+      });
+    &lt;/script&gt;
+    &lt;div class="geozoom"
+         data-width="400"
+         data-height="200"
+         data-pin="http://www.timeanddate.com/gfx/n/icon/icon-map-pin.png"
+         data-pin-width="18"
+         data-pin-height="34" &gt;&lt;/div&gt;</pre>
   </p>
   <hr />
   <h3>Limitations</h3>

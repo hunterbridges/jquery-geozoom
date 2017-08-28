@@ -38,6 +38,14 @@
       $this.find('.point').mouseleave(function (e) {
         $(this).closest(".geozoom").find(".label").hide();
       });
+
+      $this.find('.point').css({
+        'background-image' : 'url('+o.pin+')',
+        'height' : o['pin-height'],
+        'width' : o['pin-width'],
+        'margin-top' : -o['pin-height'],
+        'margin-left' : -(o['pin-width'] / 2)
+      });
     });
   };
 
@@ -93,7 +101,10 @@
     zstart: 2,
     zmiddle: 5,
     zend: 10,
-    label: true
+    label: true,
+    pin: 'images/jquery-geozoom-pin.png',
+    'pin-height': 24,
+    'pin-width': 19
   };
 })(jQuery);
 
